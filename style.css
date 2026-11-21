@@ -112,3 +112,29 @@ span{
 
     transform: translateY(-4px);
 }
+.carta{
+    flex: 10;
+    min-width: 0;
+    padding: 20px;
+
+    background: rgba(255, 255, 255, 0.15);
+
+    border-color: white;
+    border-radius: 15px;
+
+    transition: 0.3s;
+
+}
+.pontuacao1{
+    display: flex;
+    padding-bottom: 10px;
+    font-weight: 900;
+}
+
+.pontuacao2{
+    display: flex;
+    justify-content: flex-end;
+    padding-bottom: 10px;
+    font-weight: 900;
+}
+                    
