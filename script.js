@@ -26,14 +26,14 @@ function iniciarJogo() {
     document.getElementById("player1").classList.add("ativo");
     document.getElementById("player2").classList.remove("ativo");
     const simbolos = [
-        "🐱",
-        "🐶",
-        "🐼",
-        "🦊",
-        "🐸",
-        "🐵",
-        "🐰",
-        "🐻"
+        "IMG/PRISCILA.png",
+        "IMG/DARWIN.png",
+        "IMG/ERICK.png",
+        "IMG/KEYCIR.png",
+        "IMG/RAFAEL.png",
+        "IMG/TAINÁ.png",
+        "IMG/INSTAGRAM.png",
+        "IMG/PEDRO.png",
     ];
 
     const cartas = simbolos.concat(simbolos);
@@ -55,7 +55,7 @@ function iniciarJogo() {
     let pontos2 = 0;
 
     let jogadorAtual = 1;
-    
+
     let paresEncontrados = 0;
 
 
@@ -65,7 +65,7 @@ function iniciarJogo() {
 
         carta.classList.add("carta");
 
-        carta.textContent = "?";
+        carta.innerHTML = `<img src="IMG/CLOSEFRIENDS.png" class="closeimg" alt="Close Friends">`;
 
         carta.dataset.simbolo = simbolo;
         carta.dataset.indice = indice;
@@ -79,8 +79,14 @@ function iniciarJogo() {
             if (carta.classList.contains("virada")) {
                 return
             }
-            carta.textContent = carta.dataset.simbolo;
 
+            // carta.textContent = carta.dataset.simbolo;
+            const imagem = document.createElement("img");
+            imagem.src = carta.dataset.simbolo;
+            imagem.alt = "Foto de amigo";
+
+            carta.innerHTML = "";
+            carta.appendChild(imagem);
             carta.classList.add("virada");
 
             if (primeiraCarta === null) {
@@ -99,6 +105,15 @@ function iniciarJogo() {
                     segundaCarta.disabled = true;
 
                     paresEncontrados++;
+
+                    if (paresEncontrados === simbolos.length) {
+
+                        verificarVencedor(pontos1, pontos2);
+
+                        reiniciar.classList.remove("ativa");
+                        iniciar.classList.add("ativa");
+
+                    }
 
 
                     if (jogadorAtual === 1) {
@@ -120,8 +135,8 @@ function iniciarJogo() {
                     bloqueado = true;
 
                     setTimeout(function () {
-                        primeiraCarta.textContent = "?";
-                        segundaCarta.textContent = "?";
+                        primeiraCarta.innerHTML = `<img src="IMG/CLOSEFRIENDS.png" class="closeimg" alt="Close Friends">`;
+                        segundaCarta.innerHTML = `<img src="IMG/CLOSEFRIENDS.png" class="closeimg" alt="Close Friends">`;
 
                         primeiraCarta.classList.remove("virada");
                         segundaCarta.classList.remove("virada");
@@ -135,7 +150,7 @@ function iniciarJogo() {
 
                         document.getElementById("message-time").textContent = `Vez do Jogador ${jogadorAtual}`;
 
-                    
+
                         document.getElementById("player1").classList.toggle("ativo", jogadorAtual === 1);
                         document.getElementById("player2").classList.toggle("ativo", jogadorAtual === 2);
 
@@ -159,6 +174,23 @@ function iniciarJogo() {
 
 
     })
+
+    function verificarVencedor(pontos1, pontos2) {
+
+        if (pontos1 > pontos2) {
+            document.getElementById("message-time").textContent =
+                "Jogador 1 venceu!";
+        }
+        else if (pontos2 > pontos1) {
+            document.getElementById("message-time").textContent =
+                "Jogador 2 venceu!";
+        }
+        else {
+            document.getElementById("message-time").textContent =
+                "Empate!";
+        }
+
+    }
 }
 
 

@@ -7,13 +7,11 @@
 body {
     min-height: 100vh;
     width: 100%;
-    background: linear-gradient(
-        135deg,
-        #962fbf,
-        #d62976,
-        #fa7e1e,
-        #feda75
-    );
+    background: linear-gradient(135deg,
+            #962fbf,
+            #d62976,
+            #fa7e1e,
+            #feda75);
 
     display: flex;
     justify-content: center;
@@ -22,44 +20,46 @@ body {
 
 .container {
     width: 100%;
-    max-width: 550px;
+    max-width: 750px;
     padding: 25px 20px;
     text-align: center;
     color: white;
     border-radius: 22px;
     box-shadow: 0 10px 35px rgba(0, 0, 0, 0.2);
-    
+
 }
 
-.header{
+.header {
     text-align: center;
     margin-bottom: 30px;
 }
 
-.players{
+.players {
     display: flex;
     flex-direction: row;
     justify-content: center;
     gap: 30px;
     padding: 30px;
 }
-span{
+
+span {
     padding-top: 5px;
 }
 
-.button-reiniciar.ativa{
-    display:inline-block;
+.button-reiniciar.ativa {
+    display: inline-block;
 }
 
 .button-reiniciar {
     background: linear-gradient(135deg, #4a5df9, #8b5cf6);
     color: white;
-    height: 40px;
+    height: 50px;
     padding: 0 20px;
     border: none;
     border-radius: 10px;
     font-weight: bold;
     cursor: pointer;
+    margin-top: 20px;
     transition: all 0.3s ease;
     box-shadow: 0 4px 10px rgba(74, 93, 249, 0.25);
     display: none;
@@ -74,7 +74,8 @@ span{
 .button-reiniciar:active {
     transform: scale(0.96);
 }
-.time{
+
+.time {
     padding-bottom: 20px;
     text-transform: uppercase;
 }
@@ -118,29 +119,61 @@ span{
 
     transform: translateY(-4px);
 }
-.carta{
-    flex: 10;
-    min-width: 0;
-    padding: 20px;
 
-    background: rgba(255, 255, 255, 0.15);
+.carta {
+    width: 160px;
+    height: 160px;
+    border: 2px solid white;
+    border-radius: 28px;
+    overflow: hidden;
 
-    border-color: white;
-    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-    transition: 0.3s;
+    padding: 0;
+    background: rgba(255, 255, 255, 0.911);
+    cursor: pointer;
 
 }
-.pontuacao1{
+
+.pontuacao1 {
     display: flex;
     padding-bottom: 10px;
     font-weight: 900;
 }
 
-.pontuacao2{
+.pontuacao2 {
     display: flex;
     justify-content: flex-end;
     padding-bottom: 10px;
     font-weight: 900;
 }
-                    
+
+
+/* .carta img {
+      width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+} */
+
+/* .closeimg {
+   width: 100%;
+    height: 100%;
+    object-fit: container;
+} */
+
+.carta img.closeimg {
+    width: 65%;
+    height: 65%;
+    object-fit: contain;
+}
+
+.carta img:not(.closeimg) {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
