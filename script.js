@@ -1,7 +1,30 @@
 // const { Button } = require("bootstrap");
+const iniciar = document.getElementById("iniciar");
+const reiniciar = document.getElementById("reiniciar");
+
+// Iniciar partida
+iniciar.addEventListener("click", () => {
+    iniciar.classList.remove("ativa");
+    reiniciar.classList.add("ativa");
+
+    iniciarJogo();
+});
+
+// Reiniciar partida
+reiniciar.addEventListener("click", () => {
+    iniciarJogo();
+});
+
 function iniciarJogo() {
+    document.getElementById("iniciar").textContent = `Jogar Novamente`;
     document.getElementById("pontos1").textContent = 0;
     document.getElementById("pontos2").textContent = 0;
+
+    // Reinicia a vez dos jogadores
+    document.getElementById("message-time").textContent = "Vez do Jogador 1";
+
+    document.getElementById("player1").classList.add("ativo");
+    document.getElementById("player2").classList.remove("ativo");
     const simbolos = [
         "🐱",
         "🐶",
@@ -31,8 +54,8 @@ function iniciarJogo() {
     let pontos1 = 0;
     let pontos2 = 0;
 
-
     let jogadorAtual = 1;
+    
     let paresEncontrados = 0;
 
 
@@ -48,6 +71,7 @@ function iniciarJogo() {
         carta.dataset.indice = indice;
 
         carta.addEventListener("click", function () {
+
             if (bloqueado) {
                 return;
             }
@@ -102,18 +126,22 @@ function iniciarJogo() {
                         primeiraCarta.classList.remove("virada");
                         segundaCarta.classList.remove("virada");
 
+                        if (jogadorAtual === 1) {
+                            jogadorAtual = 2;
+                        }
+                        else {
+                            jogadorAtual = 1;
+                        }
+
+                        document.getElementById("message-time").textContent = `Vez do Jogador ${jogadorAtual}`;
+
+                    
+                        document.getElementById("player1").classList.toggle("ativo", jogadorAtual === 1);
+                        document.getElementById("player2").classList.toggle("ativo", jogadorAtual === 2);
 
                         primeiraCarta = null;
                         segundaCarta = null;
 
-                        document.getElementById("message-time").textContent = `Vez do Jogador ${jogadorAtual}`;
-                        document.getElementById("player1").classList.toggle("ativo", jogadorAtual === 1);
-
-                        document.getElementById("player2").classList.toggle("ativo", jogadorAtual === 2);
-
-
-
-                        jogadorAtual = jogadorAtual === 2 ? 1 : 2;
 
                         bloqueado = false;
 
@@ -127,6 +155,7 @@ function iniciarJogo() {
 
         })
         tabuleiro.appendChild(carta);
+
 
 
     })

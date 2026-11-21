@@ -46,6 +46,11 @@ body {
 span{
     padding-top: 5px;
 }
+
+.button-reiniciar.ativa{
+    display:inline-block;
+}
+
 .button-reiniciar {
     background: linear-gradient(135deg, #4a5df9, #8b5cf6);
     color: white;
@@ -57,6 +62,7 @@ span{
     cursor: pointer;
     transition: all 0.3s ease;
     box-shadow: 0 4px 10px rgba(74, 93, 249, 0.25);
+    display: none;
 }
 
 .button-reiniciar:hover {
