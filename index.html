@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Close Friend</title>
+</head>
+
+<body>
+    <main class="container">
+        <header>
+            <h1>Close Friends</h1>
+            <p>Encontre todos os amigos</p>
+        </header>
+
+        <section class="placar">
+            <div class="players">
+                <div class="player ativo" id="player1">
+                    <h2>Priscila</h2>
+                    <span class="pontos" id="pontos1">0</span>
+                </div>
+                <span><strong>X</strong></span>
+                <div class="player" id="player2">
+                    <h2>Pedro</h2>
+                    <span class="pontos" id="pontos2">0</span>
+                </div>
+            </div>
+
+
+            <section class="time">
+                <h3 id="message-time">Vez do Jogador 1</h3>
+            </section>
+
+            <section class="tabuleiro" id="tabuleiro"></section>
+
+            <section class="resultado" id="resultado"></section>
+        </section>
+
+        <button id="reiniciar" class="button-reiniciar">
+            Jogar Novamente
+        </button>
+
+    </main>
+</body>
+<script src="script.js" defer></script>
+</html>
