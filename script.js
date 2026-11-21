@@ -3,14 +3,12 @@ function iniciarJogo() {
     document.getElementById("pontos1").textContent = 0;
     document.getElementById("pontos2").textContent = 0;
     const simbolos = [
-        "🐱",
-        "🐶",
-        "🐼",
-        "🦊",
-        "🐸",
-        "🐵",
-        "🐰",
-        "🐻"
+        "IMG/PRISCILA.png",
+        "IMG/DARWIN.png",
+        "IMG/ERICK.png",
+        "IMG/KEYCIR.png",
+        "IMG/RAFAEL.png",
+        "IMG/TAINÁ.png"
     ];
 
     const cartas = simbolos.concat(simbolos);
@@ -42,8 +40,8 @@ function iniciarJogo() {
 
         carta.classList.add("carta");
 
-        carta.textContent = "?";
-
+        carta.innerHTML = `<img src="IMG/CLOSEFRIENDS.png" class="closeimg" alt="Close Friends">`;
+       
         carta.dataset.simbolo = simbolo;
         carta.dataset.indice = indice;
 
@@ -55,8 +53,14 @@ function iniciarJogo() {
             if (carta.classList.contains("virada")) {
                 return
             }
-            carta.textContent = carta.dataset.simbolo;
+            
+             // carta.textContent = carta.dataset.simbolo;
+            const imagem = document.createElement("img");
+            imagem.src = carta.dataset.simbolo;
+            imagem.alt = "Foto de amigo";
 
+            carta.innerHTML = "";
+            carta.appendChild(imagem);
             carta.classList.add("virada");
 
             if (primeiraCarta === null) {
@@ -96,8 +100,8 @@ function iniciarJogo() {
                     bloqueado = true;
 
                     setTimeout(function () {
-                        primeiraCarta.textContent = "?";
-                        segundaCarta.textContent = "?";
+                        primeiraCarta.innerHTML=`<img src="IMG/CLOSEFRIENDS.png" class="closeimg" alt="Close Friends">`;
+                        segundaCarta.innerHTML=`<img src="IMG/CLOSEFRIENDS.png" class="closeimg" alt="Close Friends">`;
 
                         primeiraCarta.classList.remove("virada");
                         segundaCarta.classList.remove("virada");

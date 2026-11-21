@@ -22,7 +22,7 @@ body {
 
 .container {
     width: 100%;
-    max-width: 550px;
+    max-width: 750px;
     padding: 25px 20px;
     text-align: center;
     color: white;
@@ -113,16 +113,19 @@ span{
     transform: translateY(-4px);
 }
 .carta{
-    flex: 10;
-    min-width: 0;
-    padding: 20px;
-
-    background: rgba(255, 255, 255, 0.15);
-
-    border-color: white;
+    width: 160px;
+    height: 160px;
+    border: 2px solid white;
     border-radius: 15px;
+    overflow: hidden;
 
-    transition: 0.3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 0;
+    background: rgba(255, 255, 255, 0.911);
+    cursor: pointer;
 
 }
 .pontuacao1{
@@ -137,4 +140,30 @@ span{
     padding-bottom: 10px;
     font-weight: 900;
 }
-                    
+                
+
+/* .carta img {
+      width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+} */
+
+/* .closeimg {
+   width: 100%;
+    height: 100%;
+    object-fit: container;
+} */
+
+.carta img.closeimg {
+    width: 65%;
+    height: 65%;
+    object-fit: contain;
+}
+
+.carta img:not(.closeimg) {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
