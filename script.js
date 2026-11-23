@@ -16,7 +16,6 @@ reiniciar.addEventListener("click", () => {
 });
 
 function iniciarJogo() {
-    document.getElementById("iniciar").textContent = `Jogar Novamente`;
     document.getElementById("pontos1").textContent = 0;
     document.getElementById("pontos2").textContent = 0;
 
@@ -106,16 +105,6 @@ function iniciarJogo() {
 
                     paresEncontrados++;
 
-                    if (paresEncontrados === simbolos.length) {
-
-                        verificarVencedor(pontos1, pontos2);
-
-                        reiniciar.classList.remove("ativa");
-                        iniciar.classList.add("ativa");
-
-                    }
-
-
                     if (jogadorAtual === 1) {
                         pontos1++;
 
@@ -128,6 +117,14 @@ function iniciarJogo() {
                         document.getElementById("pontos2").textContent = pontos2
                     }
 
+                    if (paresEncontrados === simbolos.length) {
+
+                        verificarVencedor(pontos1, pontos2);
+
+                        reiniciar.classList.remove("ativa");
+                        iniciar.classList.add("ativa");
+
+                    }
 
                     primeiraCarta = null;
                     segundaCarta = null;
@@ -185,7 +182,7 @@ function iniciarJogo() {
             document.getElementById("message-time").textContent =
                 "Jogador 2 venceu!";
         }
-        else {
+        else if (pontos1 === pontos2) {
             document.getElementById("message-time").textContent =
                 "Empate!";
         }
